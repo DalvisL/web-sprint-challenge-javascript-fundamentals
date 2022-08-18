@@ -16,8 +16,10 @@ function myFunction() {
 //myFunction();
 
 //🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
-
-
+/* 
+nestedFunction can access internal because although it's not within it's own block, functions can access code outside of their own block but never within.
+Nothing outside of myFunction can access the variable internal because const is a function scoped keyword and can only be accessed within the function that it was declared in.
+*/
 
 
 
@@ -30,10 +32,16 @@ function myFunction() {
 💡 NOTE: you may use a for loop for this function if you wish 
 */
 
-function summation(/*Your Code Here*/) {
-  /*Your Code Here*/
-
+function summation(num) {
+  let count = 0;
+  for(let i = 0; i <= num; i++) {
+    count += i;
   }
+  return count;
+  }
+
+
+//  console.log(summation(7));
  
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
@@ -60,8 +68,14 @@ const zooAnimals = [
   💡 NOTE: the array returned should be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-  function animalNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function animalNames(arr){
+   const newArr = arr.map((element) => {
+    return `name: ${element.animal_name}, scientific: ${element.scientific_name}`;
+   })
+    // arr.forEach(function(element){
+    //   newArr.push(`name: ${element.animal_name}, scientific: ${element.scientific_name}`);
+    // })
+    return newArr;
   }
   
 
@@ -75,10 +89,14 @@ const zooAnimals = [
   💡 NOTE: Do some research for other methods that can help help you
   */
 
-  function lowerCaseNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowerCaseNames(arr){
+    let newArr = arr.map(function(element) {
+      return element.animal_name.toLowerCase();
+    })
+    return newArr;
   }
   
+  console.log(lowerCaseNames(zooAnimals));
   
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
   The zoo is concerned about animals with a lower population count. 
